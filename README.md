@@ -1,8 +1,20 @@
-# React + Vite
+# SmartTIME test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Запуск проекта (через консоль)
 
-Currently, two official plugins are available:
+```yarn dev```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Функционал
+- Меню :heavy_check_mark:
+- Пользователь :heavy_check_mark:
+- Фильтры :heavy_check_mark:
+- Свойства :wavy_dash:
+- Календарь :x:
+
+## Стек разработки
+Сайт писал на JavaScript, используя React. В дальнейшем думаю стоит внедрить Redux.
+
+Для календаря нашел библиотеку ```react-big-calendar```. По функционалу она вроде походит под требования проекта (пока что разбираюсь с ней).
+
+## P.S.
+Прошу учесть, что занимался разработкой только 4 дня (из-за болезни и других обстоятельств).
