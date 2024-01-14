@@ -2,7 +2,11 @@
 
 Запуск проекта (через консоль)
 
-```yarn dev```
+```
+npm install --global yarn
+
+yarn dev
+```
 
 ## Функционал
 - Меню :heavy_check_mark:
