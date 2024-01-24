@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import global_styles from "../../../../assets/styles/global.module.css"
+import global_styles from "../../../../styles/global.module.css"
 import styles from "./Tools.module.css"
 
 import Download from "../../../../assets/icons/download.jsx"

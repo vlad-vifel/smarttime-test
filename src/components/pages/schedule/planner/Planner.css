@@ -2,6 +2,34 @@
   color: red;
 } */
 
+.planner {
+  font-family: 'Onest', sans-serif;
+  font-weight: 400;
+  color: #000;
+}
+
 .planner .rbc-calendar {
   height: 100%;
+}
+
+.planner .rbc-day-slot .rbc-event, .planner  .rbc-day-slot .rbc-background-event {
+  border: 1px solid #E4E9FF;
+  display: flex;
+  max-height: 100%;
+  min-height: 20px;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.planner .rbc-events-container {
+  margin-right: 0;
+}
+
+.planner .rbc-allday-cell {
+  display: none;
+}
+
+.planner .rbc-header {
+  border-bottom: none;
 }

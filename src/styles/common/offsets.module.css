@@ -1,0 +1,7 @@
+* {
+  --offset: 4px;
+  --offset-2x: calc(var(--offset) * 2); /* 8px */
+  --offset-4x: calc(var(--offset) * 4); /* 16px */
+  --offset-6x: calc(var(--offset) * 6); /* 24px */
+  --offset-8x: calc(var(--offset) * 8); /* 32px */
+}

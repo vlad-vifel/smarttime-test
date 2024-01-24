@@ -1,4 +1,4 @@
 .footer {
   position: relative;
-  height: 96px;
+  height: var(--footer-height);
 }

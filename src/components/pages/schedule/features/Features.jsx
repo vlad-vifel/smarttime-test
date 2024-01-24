@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import global_styles from "../../../../assets/styles/global.module.css"
+import global_styles from "../../../../styles/global.module.css"
 import styles from "./Features.module.css"
 import { useState } from "react";
 
@@ -56,7 +56,7 @@ const features = [
 ]
 
 const Features = () => {
-  const [isSelected, setIsSelected] = useState(false);
+  const [isSelected, setIsSelected] = useState(true);
 
   return (
     <div className={classNames(global_styles.white_rounded_box, styles.features)}>

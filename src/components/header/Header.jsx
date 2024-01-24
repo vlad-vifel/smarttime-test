@@ -1,8 +1,9 @@
 import styles from './Header.module.css'
 import Logo from "../../assets/logo.jsx"
 import UserDropdown from './UserDropdown/UserDropdown'
+import classNames from 'classnames'
 
-const Header = () => {
+const Header = ({className}) => {
   const userInfo = {
     options: 
     [
@@ -13,7 +14,7 @@ const Header = () => {
   }
 
   return (
-    <div className={styles.header}>
+    <div className={classNames(className, styles.header)}>
       <div className={styles.logo_area}>
         <Logo className={styles.logo} /> 
       </div>

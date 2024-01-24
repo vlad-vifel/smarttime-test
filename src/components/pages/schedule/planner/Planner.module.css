@@ -1,4 +1,5 @@
-.calendar_big {
+.planner_big {
   flex: 1;
   height: 100%;
+  overflow: hidden;
 }

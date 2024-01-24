@@ -1,0 +1,12 @@
+.wrapper {
+  position: absolute;
+  border-radius: 12px;
+  border: 1px solid #E4E9FF;
+
+  background: #FFF;
+
+  box-shadow: 0px 0px 25px 0px rgba(106, 122, 152, 0.10);
+
+  overflow: hidden;
+  cursor: pointer;
+}
