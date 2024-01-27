@@ -1,18 +1,22 @@
 .dropdown_container {
   position: relative;
-  height: 100%;
+  height: 32px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.dropdown_trigger {
+  height: 100%;
+}
+
 .dropdown_trigger button {
+  height: 100%;
+
   outline: none;
   box-shadow: none;
   border: none;
-
-  height: 40px;
 
   display: flex;
   padding: 6px 12px;
@@ -20,15 +24,14 @@
   align-items: center;
   gap: 10px;
 
-  border-radius: 14px;
+  border-radius: 12px;
   border: 1px solid #000;
   background: #FFF;
 
-  color: #000;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 28px; /* 140% */
+  line-height: 20px; /* 140% */
 }
 
 .dropdown_trigger_orange button {

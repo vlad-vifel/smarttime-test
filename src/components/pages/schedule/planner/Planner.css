@@ -2,18 +2,83 @@
   color: red;
 } */
 
-.planner {
+.planner * {
   font-family: 'Onest', sans-serif;
   color: #2B2F3A;
   font-size: 14px;
   font-style: normal;
   font-weight: bold;
   line-height: 20px;
+
 }
 
 .planner .rbc-calendar {
   height: 100%;
 }
+
+.planner .rbc-time-view {
+  border: none;
+}
+
+.planner .rbc-time-header {
+  height: 40px;
+}
+
+.planner .rbc-time-header-gutter {
+  background: #FF8000;
+}
+
+.planner .rbc-time-header-content {
+  border: none;
+  border-left: 1px solid #F9BB7C;
+}
+
+.planner .rbc-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #F9BB7C;
+
+  border: none;
+  border-right: 1px solid #F9BB7C;
+  border-left: 1px solid #F9BB7C;
+}
+
+.planner .rbc-time-content {
+  border-top: none;
+  border-left: 1px solid #FABB7C;
+}
+
+.planner .rbc-time-column {
+  border-right: 1px solid #F9BB7C;
+  border-left: 1px solid #F9BB7C;
+}
+
+.planner .rbc-time-view .rbc-row {
+  min-height: 40px;
+}
+
+.planner .rbc-time-gutter {
+  background: #FFFAD9;
+}
+
+.planner .rbc-time-gutter .rbc-time-slot {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.planner .rbc-timeslot-group {
+  min-height: 80px;
+  border: none;
+  border-bottom: 1px solid #F9BB7C;
+}
+
+.planner .rbc-time-slot {
+  border-top: 1px solid #F9BB7C;
+}
+
 
 .planner .rbc-events-container {
   margin-right: 0;
@@ -21,8 +86,4 @@
 
 .planner .rbc-allday-cell {
   display: none;
-}
-
-.planner .rbc-header {
-  border-bottom: none;
 }

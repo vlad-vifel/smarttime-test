@@ -6,6 +6,7 @@ import Tools from "./tools/Tools";
 import Features from "./features/Features";
 import Planner from "./planner/Planner";
 import StaticPage from "../common/staticPage/StaticPage"
+import Topbar from "./topbar/Topbar";
 
 const Schedule = () => {
   return (
@@ -14,13 +15,14 @@ const Schedule = () => {
         <Tools />
         <div className={styles.main}>
           <div className={classNames(global_styles.white_rounded_box, styles.left)}>
+            <Topbar/>
+            <div className={styles.divider}/>
             <Planner />
           </div>
-          {/* <Planner /> */}
           <div className={styles.right}>
             <Features />
             <div className={classNames(global_styles.white_rounded_box, styles.btn_container)}>
-              <button className={classNames(global_styles.btn_orange)}>Сохранить изменения</button>
+              <button className={classNames(global_styles.btn_orange, styles.btn)}>Сохранить изменения</button>
             </div>
           </div>
         </div>

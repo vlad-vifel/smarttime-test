@@ -74,7 +74,7 @@ const MyEventWrapperComponent = (props) => {
         className={`rbc-addons-dnd-resize-${cls}-anchor`}
         onMouseDown={selectHandler(direction)}
       >
-        {/* тут вставляешь любую иконку в зависимости от переменной cls */}
+        {/* можно вставить любую иконку в зависимости от переменной cls */}
         <div className={`rbc-addons-dnd-resize-${cls}-icon`} />
       </div>
     )
@@ -157,7 +157,6 @@ const MyEventWrapperComponent = (props) => {
       anchors.endAnchor = EndAnchor;
     }
 
-    // если event перетаскивается прямо сейчас и это текущий event
     if (draggable.dragAndDropAction.interacting && draggable.dragAndDropAction.event === event) {
       newProps.className = 'rbc-addons-dnd-dragged-event';
     }
@@ -174,7 +173,8 @@ MyEventWrapperComponent.propTypes = {
     top: PropTypes.number,
   }),
   onClick: PropTypes.func,
-  // тип твоего ивента сам пропишешь в отдельном файле и импортнешь где нужно (например еще в MyEventComponent)
+
+  // прописать тип ивента в отдельном файле и импортировать где-то (например еще в MyEventComponent)
   event: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired,
 

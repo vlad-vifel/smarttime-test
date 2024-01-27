@@ -120,12 +120,7 @@ const Tools = () => {
       <div className={styles.btns}>
         <button className={classNames(global_styles.btn_orange)}>
           <Download />
-          Скачать PDF
-        </button>
-
-        <button className={classNames(global_styles.btn_orange)}>
-          <Download />
-          Скачать XSLX
+          Скачать расписание
         </button>
       </div>
     </div>
