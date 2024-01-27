@@ -3,14 +3,13 @@ import global_styles from "../../../../styles/global.module.css"
 import 'react-big-calendar/lib/sass/styles.scss';
 import './Planner.css'
 import styles from "./Planner.module.css"
+import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 
 import { Calendar, momentLocalizer,} from 'react-big-calendar'
 import moment from 'moment'
 import 'moment/locale/ru';
 import { useCallback, useMemo, useState } from "react";
-
-// import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
-import withDragAndDrop from "./WithDragAndDropCustom";
+import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 
 import Globalize from 'globalize'
@@ -91,35 +90,32 @@ const testEvents = [
 
 const DnDCalendar = withDragAndDrop(Calendar);
 
+const updateEvent = (allEvents, updatedEvent) => {
+  const filtered = allEvents.filter((item) => item.id !== updatedEvent.id);
+
+  return [...filtered, { ...updatedEvent }];
+};
+
 
 const Planner = () => {
   const [culture, setCulture] = useState('ru-RU');
   const [myEvents, setMyEvents] = useState(testEvents);
 
 
-  const moveEvent = useCallback(
+  const onEventDrop = useCallback(
     ({ event, start, end, isAllDay: droppedOnAllDaySlot = false }) => {
-      const { allDay } = event;
-      if (!allDay && droppedOnAllDaySlot) {
+      if (!event.allDay && droppedOnAllDaySlot) {
         event.allDay = true;
       }
 
-      setMyEvents((prev) => {
-        const existing = prev.find((ev) => ev.title === event.title) ?? {};
-        const filtered = prev.filter((ev) => ev.title !== event.title);
-        return [...filtered, { ...existing, start, end, allDay }];
-      });
+      setMyEvents((prev) => updateEvent(prev, { ...event, start, end } ));
     },
     [setMyEvents]
   );
 
-  const resizeEvent = useCallback(
+  const onEventResize = useCallback(
     ({ event, start, end }) => {
-      setMyEvents((prev) => {
-        const existing = prev.find((ev) => ev.title === event.title) ?? {};
-        const filtered = prev.filter((ev) => ev.title !== event.title);
-        return [...filtered, { ...existing, start, end }];
-      });
+      setMyEvents((prev) => updateEvent(prev, { ...event, start, end } ));
     },
     [setMyEvents]
   );
@@ -158,26 +154,26 @@ const Planner = () => {
       views: {
         week: MyRange
       },
-      events: testEvents,
+      events: myEvents,
       components: {
         event: MyEventComponent,
         eventWrapper: MyEventWrapperComponent,
       },
       duration: 5,
     }),
-    [culture]
+    [culture, myEvents]
   )
   
 
   const onSelectEvent = useCallback((calEvent) => {
-    console.log('calEvent:', calEvent)
+    console.log('onSelectEvent calEvent:', calEvent)
   }, [])
 
   return (
     <div className={classNames(global_styles.white_rounded_box, styles.planner_big, "planner")}>
       <DnDCalendar
         localizer={localizer}
-        events={myEvents}
+        events={events}
         defaultView={"week"}
         toolbar={false}
         defaultDate={defaultDate}
@@ -191,16 +187,13 @@ const Planner = () => {
         // selectable
         popup
         resizable
-        onEventDrop={moveEvent}
-        onEventResize={resizeEvent}
+        onEventDrop={onEventDrop}
+        onEventResize={onEventResize}
         // eventPropGetter={eventPropGetter}
 
-        // step={30} timeslots={2} // Большие деления - 1 час, маленькие деления - 30 минут 
-        // step={30} timeslots={3} // Большие деления - 1 час, маленькие деления - 20 минут 
-        // step={30} timeslots={4} // Большие деления - 1 час, маленькие деления - 15 минут 
-        // step={30} timeslots={6} // Большие деления - 1 час, маленькие деления - 10 минут 
-        step={15} timeslots={2} // Большие деления - 30 минут, маленькие деления - 15 минут
-        // step={15} timeslots={3} // Большие деления - 30 минут, маленькие деления - 10 минут
+        // step={30} timeslots={2} // Большие деления - 1 час, маленькие деления - 30 минут - оставляем
+        // step={20} timeslots={3} // Большие деления - 1 час, маленькие деления - 20 минут - оставляем
+        step={10} timeslots={3} // Большие деления - 30 минут, маленькие деления - 10 минут - оставляем
       />
     </div>
   )

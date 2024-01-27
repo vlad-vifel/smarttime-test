@@ -13,7 +13,10 @@ const Schedule = () => {
       <div className={styles.content}>
         <Tools />
         <div className={styles.main}>
-          <Planner />
+          <div className={classNames(global_styles.white_rounded_box, styles.left)}>
+            <Planner />
+          </div>
+          {/* <Planner /> */}
           <div className={styles.right}>
             <Features />
             <div className={classNames(global_styles.white_rounded_box, styles.btn_container)}>

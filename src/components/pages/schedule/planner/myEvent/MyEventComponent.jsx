@@ -1,36 +1,44 @@
-import classNames from "classnames"
-import styles from  "./MyEventComponent.module.css"
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import styles from  "./MyEventComponent.module.css";
 
 const MyEventComponent = (props) => {
+  const { event, label } = props;
+
   return (
     <div className={classNames('rbc-addons-dnd-resizable', styles.content)}>
       <div className={styles.header}>
-        {props.event.title}
+        {event.title}
       </div>
 
       <div className={styles.main}>
         <div className={styles.time}>
-          {props.label}
+          {label}
         </div>
 
         <div className={styles.divider}></div>
 
         <div className={styles.teacher}>
-          {props.event.teacher}
+          {event.teacher}
         </div>
 
         <div className={styles.info}>
-          Аудитория - <span>{props.event.auditorium}</span><br/>
-          Тип - <span>{props.event.type}</span>
+          Аудитория - <span>{event.auditorium}</span><br/>
+          Тип - <span>{event.type}</span>
         </div>
 
         <div className={styles.info}>
-          Курс - <span>{props.event.courseNo}</span><br/>
-          Группа - <span>{props.event.groupNo}</span>
+          Курс - <span>{event.courseNo}</span><br/>
+          Группа - <span>{event.groupNo}</span>
         </div>
       </div>
     </div>
   );
 };
+
+MyEventComponent.propTypes = {
+  event: PropTypes.object.isRequired,
+  label: PropTypes.string,
+}
 
 export default MyEventComponent;

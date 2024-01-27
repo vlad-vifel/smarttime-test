@@ -16,7 +16,7 @@ const MyRange = ({
 }) => {
 
   const currRange = useMemo(
-    () => MyRange.range(date, { localizer }, 7),
+    () => MyRange.range(date, { localizer }, 5),
     [date, localizer]
   )
 
