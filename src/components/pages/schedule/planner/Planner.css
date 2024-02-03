@@ -10,10 +10,12 @@
   font-weight: bold;
   line-height: 20px;
 
+  --column-min-width: 200px;
 }
 
 .planner .rbc-calendar {
-  height: 100%;
+  height: fit-content;
+  width: fit-content;
 }
 
 .planner .rbc-time-view {
@@ -21,6 +23,13 @@
 }
 
 .planner .rbc-time-header {
+  /* position: absolute; */
+  /* width: max-content; */
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
   height: 40px;
 }
 
@@ -30,10 +39,11 @@
 
 .planner .rbc-time-header-content {
   border: none;
-  border-left: 1px solid #F9BB7C;
+  border-left: 1px solid #FF8000;
 }
 
 .planner .rbc-header {
+  min-width: var(--column-min-width);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,13 +56,21 @@
 }
 
 .planner .rbc-time-content {
+  /* overflow-y: auto; */
+  overflow-y: hidden;
+  flex-shrink: 0;
   border-top: none;
   border-left: 1px solid #FABB7C;
 }
 
 .planner .rbc-time-column {
+  min-width: var(--column-min-width);
   border-right: 1px solid #F9BB7C;
   border-left: 1px solid #F9BB7C;
+}
+
+.planner .rbc-time-content .rbc-time-gutter {
+  min-width: 0;
 }
 
 .planner .rbc-time-view .rbc-row {

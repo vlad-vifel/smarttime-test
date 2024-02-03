@@ -17,7 +17,10 @@ const Schedule = () => {
           <div className={classNames(global_styles.white_rounded_box, styles.left)}>
             <Topbar/>
             <div className={styles.divider}/>
-            <Planner />
+            <div className={styles.planner_wrapper}>
+              <Planner />
+            </div>
+            {/* <Planner /> */}
           </div>
           <div className={styles.right}>
             <Features />

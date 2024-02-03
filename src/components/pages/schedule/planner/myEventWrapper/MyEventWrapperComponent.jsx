@@ -85,9 +85,9 @@ const MyEventWrapperComponent = (props) => {
       <div
         role="button"
         style={{
-          height: `${style.height}%`,
-          width: `${style.width}%`,
-          top: `${style.top}%`,
+          height: `${style?.height}%`,
+          width: `${style?.width}%`,
+          top: `${style?.top}%`,
         }}
         onClick={onClick}
         // onClick={(e) => console.log(props.onClick)}
