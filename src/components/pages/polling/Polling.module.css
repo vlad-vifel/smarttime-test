@@ -1,0 +1,98 @@
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+
+  gap: 16px;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.content p {
+  text-indent: 22px;
+}
+
+.content ol {
+  list-style: inside decimal;
+  line-height: 32px;
+}
+
+.content ul {
+  list-style: disc;
+  padding-left: 44px;
+  line-height: 24px;
+}
+
+.content ul li {
+  text-indent: -4px;
+}
+
+.intro {
+  width: 100%;
+
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.intro_header {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 20px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding-left: 22px;
+
+  gap: 8px;
+}
+
+.intro_text p span {
+  color: #FF8000;
+  text-decoration: underline;
+}
+
+.instruction p span {
+  font-weight: bold;
+}
+
+
+.restrictions > * {
+  margin: 0 0 8px;
+}
+
+.restrictions .checkboxes {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  padding-left: 22px;
+  margin-bottom: 24px;
+}
+
+.restrictions .checkboxes > div {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+
+.save_container {
+  padding: 0;
+}
+
+.save_container button {
+  width: 150px;
+  height: 36px;
+}
+

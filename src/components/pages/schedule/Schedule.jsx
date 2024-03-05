@@ -20,7 +20,6 @@ const Schedule = () => {
             <div className={styles.planner_wrapper}>
               <Planner />
             </div>
-            {/* <Planner /> */}
           </div>
           <div className={styles.right}>
             <Features />

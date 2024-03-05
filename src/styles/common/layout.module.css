@@ -1,7 +1,11 @@
 * {
-  --header-height: 86px;
-  --footer-height: 86px;
+  --header-height: 64px;
+  --footer-height: 80px;
 
-  --sidebar-width: 92px;
-  --sidebar-width-open: 382px;
+  --sidebar-width: 63px;
+  --sidebar-width-open: 227px;
+
+  --features-width: 268px;
+
+  --default-font-size: 16px;
 }

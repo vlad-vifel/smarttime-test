@@ -1,0 +1,11 @@
+.radiobuttons_container .radiobutton .state label:before {
+  border-color: #FF8000;
+}
+
+.radiobuttons_container .radiobutton.p-default input:checked ~ .state label:after {
+  background-color: #FF8000 !important;
+}
+
+.radiobuttons_container .radiobutton.p-default .state label:after {
+  transform: scale(0.5);
+}

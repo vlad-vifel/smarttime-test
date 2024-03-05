@@ -42,7 +42,7 @@
 }
 
 .right {
-  width: 268px;
+  width: var(--features-width);
   height: 100%;
 
   display: flex;

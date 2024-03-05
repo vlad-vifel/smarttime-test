@@ -29,7 +29,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 10;
   height: 40px;
 }
 
@@ -71,6 +71,10 @@
 
 .planner .rbc-time-content .rbc-time-gutter {
   min-width: 0;
+
+  position: sticky;
+  left: 0;
+  z-index: 5;
 }
 
 .planner .rbc-time-view .rbc-row {

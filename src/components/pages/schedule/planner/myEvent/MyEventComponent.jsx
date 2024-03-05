@@ -23,8 +23,7 @@ const MyEventComponent = (props) => {
         </div>
 
         <div className={styles.info}>
-          Аудитория - <span>{event.auditorium}</span><br/>
-          Тип - <span>{event.type}</span>
+          Аудитория - <span>{event.auditorium}</span>
         </div>
 
         <div className={styles.info}>

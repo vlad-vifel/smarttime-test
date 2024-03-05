@@ -55,6 +55,8 @@
   border-radius: 15px;
   border: 1px solid #000;
   background: #FFF;
+
+  z-index: 3;
 }
 
 .dropdown_body_orange {

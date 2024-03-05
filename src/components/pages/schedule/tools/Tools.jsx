@@ -88,7 +88,7 @@ const Tools = () => {
       ]
     },
     {
-      title: "Адитория",
+      title: "Аудитория",
       options:
       [
         "101", 

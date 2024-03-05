@@ -1,47 +1,13 @@
-import './App.css'
-import { createBrowserRouter, RouterProvider, Router } from 'react-router-dom'
+import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Page404 from './components/pages/404/404'
-import Schedule from './components/pages/schedule/Schedule'
-import Root from './components/root/Root'
+import { useSelector } from "react-redux";
 
-const routes = [
-  {
-    path: '/',
-    exact: true,
-    element: <Root />,
-    errorElement: <Root />,
-    children: [
-      {
-        path: '',
-        element: <Page404 />,
-      },
-      {
-        path: 'profile',
-        element: <Page404 />,
-      },
-      {
-        path: 'notifications',
-        element: <Page404 />,
-      },
-      {
-        path: 'schedule',
-        element: <Schedule />,
-      },
-      {
-        path: '*',
-        element: <Page404 />,
-      },
-    ]
-  },
-];
+const App = () => {
+  const routes = useSelector((state) => state.global.routes);
+  const router = createBrowserRouter(routes);
 
-const router = createBrowserRouter(routes)
-
-function App() {
-  return (
-    <RouterProvider router={router} />
-  )
-}
+  return <RouterProvider router={router} />;
+};
 
 export default App;

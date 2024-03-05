@@ -1,22 +1,28 @@
 import { useRef, useState } from 'react';
 import styles from'./UserDropdown.module.css';
-import useOutsideClick from '../../../hooks/UseOutsideClick';
+import useOutsideClick from '../../../hooks/UseOutsideClick.jsx';
 
 import User from "../../../assets/icons/user.jsx"
-import Arrow from "../../../assets/icons/arrow.jsx"
-import Check from "../../../assets/icons/check.jsx"
+import DownArrow from "../../../assets/icons/down-arrow.jsx"
+import UpArrow from '../../../assets/icons/up-arrow.jsx';
 import Logout from "../../../assets/icons/logout.jsx"
 import classNames from 'classnames';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedUserOption } from '../../../store/globalSlice.js';
 
-const UserDropdown = (props) => {
+const UserDropdown = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const dropdownRef = useRef(null);
 
-  const [value, setValue] = useState(props.info.options[0]);
+  const dispatcher = useDispatch();
+
+  const options = useSelector(state => state.global.userOptions);
+
+  const value = useSelector(state => state.global.selectedUserOption);
 
   const changeValue = (e) => {
-    setValue(e.target.value);
+    dispatcher(setSelectedUserOption(e.target.value));
   };
 
   const close = () => {
@@ -37,25 +43,28 @@ const UserDropdown = (props) => {
         <button onClick={toggle}>
           <User />
           Иванов Иван Иванович
-          <Arrow />
+          {!isVisible && <DownArrow />}
+          {isVisible && <UpArrow />}
         </button>
       </div>
       {
         isVisible &&
         <div className={styles.dropdown_body}>
           <div className={styles.dropdown_options}>
-            {props.info.options.map((option, i) => (
-              <button key={i} className={styles.dropdown_option} onClick={changeValue} value={option}>
-                {option}
-                <span className={classNames({[styles.hidden]: value !== option})}> 
-                  <Check />
-                </span>
+            {options.map((option, i) => (
+              <button 
+                key={i} 
+                className={classNames(styles.dropdown_option, {[styles.chosen]: value === option})} 
+                onClick={changeValue} 
+                value={option}>
+                  {option}
               </button>
             ))}
           </div>
+          <div className={styles.divider}/>
           <button className={styles.dropdown_btn} onClick={close}>
-            Выйти
             <Logout />
+            Выйти
           </button>
         </div>
       }

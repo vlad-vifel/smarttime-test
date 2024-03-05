@@ -16,7 +16,7 @@ const MyRange = ({
 }) => {
 
   const currRange = useMemo(
-    () => MyRange.range(date, { localizer }, 10),
+    () => MyRange.range(date, { localizer }, 20),
     [date, localizer]
   )
 
@@ -44,10 +44,10 @@ MyRange.range = (date, { localizer }, duration) => {
   let i = 1;
 
   while (localizer.lte(current, end, 'day')) {
-    if (i != 2) {
-      range.push(current)
-    }
-    // range.push(current)
+    // if (i != 2) {
+    //   range.push(current)
+    // }
+    range.push(current)
     current = localizer.add(current, 1, 'day')
     i += 1;
   }
@@ -82,24 +82,3 @@ MyRange.propTypes = {
 }
 
 export default MyRange;
-
-
-// columns = [
-//   {
-//     id: 'students',
-//     title: 'Студенты какой-то кафедры',
-//     children: React.Node,
-//   }
-// ]
-
-// row = [
-//   {
-//     id: '1',
-//     columns: [
-//       {
-//         columnId: 'students',
-//         data: React.Node,
-//       }
-//     ],
-//   }
-// ]

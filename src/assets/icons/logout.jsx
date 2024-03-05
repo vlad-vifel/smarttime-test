@@ -1,17 +1,8 @@
 import React from "react"
 
 const Logout = () => (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g id="log-out" clip-path="url(#clip0_493_332)">
-  <path id="Vector" d="M5.25 12.25H2.91667C2.60725 12.25 2.3105 12.1271 2.09171 11.9083C1.87292 11.6895 1.75 11.3928 1.75 11.0833V2.91667C1.75 2.60725 1.87292 2.3105 2.09171 2.09171C2.3105 1.87292 2.60725 1.75 2.91667 1.75H5.25" stroke="#CACBCE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  <path id="Vector_2" d="M9.33398 9.91732L12.2507 7.00065L9.33398 4.08398" stroke="#CACBCE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  <path id="Vector_3" d="M12.25 7H5.25" stroke="#CACBCE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </g>
-  <defs>
-  <clipPath id="clip0_493_332">
-  <rect width="14" height="14" fill="white"/>
-  </clipPath>
-  </defs>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fillRule="evenodd" clipRule="evenodd" d="M18.6064 5.39363C18.2716 5.05889 17.7289 5.05889 17.3942 5.39363L12.0002 10.7876L6.60637 5.39375C6.27164 5.05902 5.72892 5.05902 5.39419 5.39375C5.05945 5.72849 5.05945 6.2712 5.39419 6.60593L10.788 11.9998L5.39419 17.3936C5.05945 17.7284 5.05945 18.2711 5.39419 18.6058C5.72892 18.9405 6.27164 18.9405 6.60637 18.6058L12.0002 13.212L17.3942 18.6059C17.7289 18.9407 18.2716 18.9407 18.6064 18.6059C18.9411 18.2712 18.9411 17.7285 18.6064 17.3938L13.2124 11.9998L18.6064 6.60581C18.9411 6.27108 18.9411 5.72836 18.6064 5.39363Z" fill="white"/>
   </svg>
 );
 
