@@ -1,0 +1,26 @@
+.body {
+  width: 100%;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.link_wrapper {
+  padding: 20px;
+}
+
+.link {
+  font-weight: 600;
+  text-decoration: none; 
+  color: #000;
+}
+
+.link:hover {
+  color: #FF8000;
+  /* transition: all 0.1s ease-in-out; */
+}

@@ -1,0 +1,141 @@
+.dropdown_container {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown_trigger {
+  height: 100%;
+}
+
+.dropdown_trigger button {
+  height: 100%;
+  /* width: fit-content; */
+
+  /* padding: 0; */
+
+  outline: none;
+  box-shadow: none;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  background: transparent; 
+}
+
+.dropdown_trigger_orange button {
+  border: 1px solid #FF8000;
+  color: #FF8000;
+}
+
+.dropdown_body {
+  outline: none;
+  box-shadow: none;
+  border: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  position: absolute;
+  padding: 10px 16px;
+
+  /* border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px; */
+  border: 2px solid #F9BB7C;
+  border-top: none;
+  background: #FFF;
+
+  z-index: 15;
+}
+
+.dropdown_body_orange {
+  border: 1px solid #FF8000;
+}
+
+.dropdown_search {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #CFD8FF;
+  border-radius: 8px;
+  padding: 2px 8px;
+}
+
+.dropdown_scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding: 2px 0;
+
+  max-height: 104px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.dropdown_title_orange {
+  color: #FF8000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 28px;
+}
+
+.dropdown_scroll div {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown_scroll_orange div {
+  color: #FF8000;
+}
+
+.dropdown_body div input{
+  margin: 0;
+}
+
+.dropdown_btn {
+  outline: none;
+  box-shadow: none;
+  border: none;
+
+  display: flex;
+  width: fit-content;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+
+  margin: auto;
+
+
+  border-radius: 14px;
+  border: 0.5px solid #333;
+  background: #333;
+  box-shadow: 0px 4px 4px 0px rgba(38, 62, 100, 0.10);
+    
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.dropdown_btn_orange {
+  border: 0.5px solid #FF8000;
+  background: #FF8000;
+}

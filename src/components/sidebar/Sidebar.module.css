@@ -2,6 +2,7 @@
   position: relative;
   height: 100%;
   width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
 
 
   background: #2B2F3A;
@@ -17,6 +18,7 @@
 
 .opened {
   width: var(--sidebar-width-open);
+  min-width: var(--sidebar-width-open);
 }
 
 .decoration_top {

@@ -19,7 +19,7 @@ const Restrictions = ({ start, duration }) => {
   const makeColumns = () => {
     const columns = [
       {
-        Header: " ",
+        Header: "ㅤ",
         accessor: "time",
       },
     ];
@@ -63,11 +63,11 @@ const Restrictions = ({ start, duration }) => {
       for (let i = 1; i <= duration; i++) {
         if (blocked.includes(i)) {
           row["data" + i.toString()] = (
-            <Checkbox checked={true} disabled={true} />
+            <Checkbox checked={true} disabled={true} isClose={true}/>
           );
         } else {
           row["data" + i.toString()] = (
-            <Checkbox checked={false} disabled={false} />
+            <Checkbox checked={false} disabled={false} isClose={true}/>
           );
         }
       }
@@ -77,12 +77,8 @@ const Restrictions = ({ start, duration }) => {
     return data;
   };
 
-  console.log(makeColumns());
-  console.log(makeData());
-
   return (
-    <Table data={makeData()} columns={makeColumns()} />
-    // <Table data={fakeData} columns={columns1}/>
+    <Table data={makeData()} columns={makeColumns()} center={true} autoWidth={true}/>
   );
 };
 

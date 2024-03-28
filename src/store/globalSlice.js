@@ -3,8 +3,7 @@ import Root from "../components/root/Root";
 import Page404 from "../components/pages/404/404";
 import Schedule from "../components/pages/schedule/Schedule";
 import Polling from "../components/pages/polling/Polling";
-import Workload from "../components/pages/guides/workload/Workload"
-
+import Workload from "../components/pages/guides/workload/Workload";
 
 import HomeIcon from "../assets/icons/sidebar/home";
 import NotificationsIcon from "../assets/icons/sidebar/notifications";
@@ -15,17 +14,25 @@ import GuidesIcon from "../assets/icons/sidebar/guides";
 import HelpIcon from "../assets/icons/sidebar/help";
 import InstructionIcon from "../assets/icons/sidebar/instruction";
 import { Outlet } from "react-router-dom";
+import Home from "../components/pages/home/Home";
+import Users from "../components/pages/users/Users";
+import Guides from "../components/pages/guides/Guides";
+import Auditorium from "../components/pages/guides/auditorium/Auditorium";
+import Login from "../components/pages/login/Login";
 
 const globalSlice = createSlice({
   name: "global",
   initialState: {
     sidebarIsOpen: true,
-    selectedLink: {
-      id: 0,
-      title: "Главная",
-      to: "/",
-      icon: HomeIcon,
-    },
+    isFiltered: true,
+    pageTitle: [
+      {
+        id: 0,
+        title: "Главная",
+        to: "/",
+        icon: HomeIcon,
+      },
+    ],
     links: [
       {
         id: 0,
@@ -35,46 +42,54 @@ const globalSlice = createSlice({
       },
       {
         id: 1,
-        title: "Уведомления",
-        to: "/notifications",
-        icon: NotificationsIcon,
-        notifications: 2,
-      },
-      {
-        id: 2,
         title: "Расписание сессии",
         to: "/schedule",
         icon: ScheduleIcon,
       },
       {
-        id: 3,
+        id: 2,
         title: "Анкетирование",
         to: "/polling",
         icon: PollingIcon,
       },
       {
-        id: 4,
+        id: 3,
         title: "Пользователи",
         to: "/users",
         icon: UsersIcon,
       },
       {
-        id: 5,
+        id: 4,
         title: "Справочники",
         to: "/guides",
         icon: GuidesIcon,
       },
       {
-        id: 6,
+        id: 5,
         title: "Помощь",
         to: "/help",
         icon: HelpIcon,
       },
       {
-        id: 7,
+        id: 6,
         title: "Инструкция",
         to: "/instruction",
         icon: InstructionIcon,
+      },
+      {
+        id: 7,
+        title: "Авторизация",
+        to: "/login",
+      },
+      {
+        id: 8,
+        title: "Нагрузки",
+        to: "/guides/workload",
+      },
+      {
+        id: 9,
+        title: "Аудитории",
+        to: "/guides/auditorium",
       },
     ],
     routes: [
@@ -86,11 +101,7 @@ const globalSlice = createSlice({
         children: [
           {
             path: "",
-            Component: Page404,
-          },
-          {
-            path: "notifications",
-            Component: Page404,
+            Component: Home,
           },
           {
             path: "schedule",
@@ -102,7 +113,7 @@ const globalSlice = createSlice({
           },
           {
             path: "users",
-            Component: Page404,
+            Component: Users,
           },
           {
             path: "/guides",
@@ -110,13 +121,17 @@ const globalSlice = createSlice({
             children: [
               {
                 path: "",
-                Component: Workload,
+                Component: Guides,
               },
               {
                 path: "workload",
                 Component: Workload,
               },
-            ]
+              {
+                path: "auditorium",
+                Component: Auditorium,
+              },
+            ],
           },
           {
             path: "help",
@@ -130,16 +145,20 @@ const globalSlice = createSlice({
             path: "*",
             Component: Page404,
           },
+          {
+            path: "login",
+            Component: Login,
+          },
         ],
       },
     ],
     selectedEvent: {},
-    events: [ 
+    events: [
       {
         id: 0,
-        title: 'Информатика',
+        title: "Информатика",
         start: new Date(2024, 0, 21, 9, 30, 0),
-        end: new Date(2024, 0, 21, 11 , 45, 0),
+        end: new Date(2024, 0, 21, 11, 45, 0),
         format: "Очный",
         teacher: "Востриков Александр Владимирович",
         auditorium: "504 (лек)",
@@ -147,14 +166,14 @@ const globalSlice = createSlice({
         courseNo: 1,
         groupNo: "БИБ231",
         credits: 6,
-        note: "-"
+        note: "-",
       },
-    
+
       {
         id: 1,
-        title: 'Основы российской государственности',
+        title: "Основы российской государственности",
         start: new Date(2024, 0, 23, 11, 15, 0),
-        end: new Date(2024, 0, 23, 14 , 0, 0),
+        end: new Date(2024, 0, 23, 14, 0, 0),
         format: "Онлайн",
         teacher: "Иванов Евгений Игоревич",
         auditorium: "110 (комп)",
@@ -162,14 +181,14 @@ const globalSlice = createSlice({
         courseNo: 2,
         groupNo: "БИВ223",
         credits: 2,
-        note: "-"
+        note: "-",
       },
-    
+
       {
         id: 2,
-        title: 'Разработка защищенных приложений',
+        title: "Разработка защищенных приложений",
         start: new Date(2024, 0, 24, 7, 0, 0),
-        end: new Date(2024, 0, 24, 9 , 45, 0),
+        end: new Date(2024, 0, 24, 9, 45, 0),
         format: "Онлайн",
         teacher: "Морозов Эдуард Викторович",
         auditorium: "412 (лек)",
@@ -177,14 +196,14 @@ const globalSlice = createSlice({
         courseNo: 1,
         groupNo: "ПМ23X",
         credits: 4,
-        note: "-"
+        note: "-",
       },
-    
+
       {
         id: 3,
-        title: 'Криптографические методы зациты информации',
+        title: "Криптографические методы зациты информации",
         start: new Date(2024, 0, 27, 8, 0, 0),
-        end: new Date(2024, 0, 27, 15 , 0, 0),
+        end: new Date(2024, 0, 27, 15, 0, 0),
         format: "Очный",
         teacher: "Евсютин Олег Олегович",
         auditorium: "308 (комп)",
@@ -192,33 +211,52 @@ const globalSlice = createSlice({
         courseNo: 2,
         groupNo: "БИБ223",
         credits: 8,
-        note: "-"
+        note: "-",
       },
     ],
     selectedUserOption: "Преподаватель",
     userOptions: [
-        "Преподаватель",
-        "Учебный офис",
-        "Менеджер департамента",
-        "Администратор",
+      "Преподаватель",
+      "Учебный офис",
+      "Менеджер департамента",
+      "Администратор",
     ],
     selectedTeacherOption: "Иванов Иван Иванович",
     teacherOptions: [
-        "Иванов Иван Иванович",
-        "Евсютин Александр Олегович",
-        "Романова Наталья Викторовна",
-        "Морозов Илья Владимирович",
+      "Иванов Иван Иванович",
+      "Евсютин Александр Олегович",
+      "Романова Наталья Викторовна",
+      "Морозов Илья Владимирович",
     ],
-
+    removeAllFilters: false,
   },
   reducers: {
-    setSelectedLink(state, action) {
-      state.selectedLink = state.links.find(
-        (link) => link.id === action.payload.id
+    setPageTitle(state, action) {
+      state.pageTitle = [];
+      state.pageTitle.push(
+        state.links.find(
+          (link) =>
+            link.id ===
+            state.links.find(
+              (item) => item.to === "/" + action.payload.split("/")[1]
+            )?.id
+        )
       );
+      if (action.payload.split("/").length > 2) {
+        state.pageTitle.push(
+          state.links.find(
+            (link) =>
+              link.id ===
+              state.links.find((item) => item.to === action.payload)?.id
+          )
+        );
+      }
     },
     toggleSidebar(state) {
       state.sidebarIsOpen = !state.sidebarIsOpen;
+    },
+    toggleIsFiltered(state) {
+      state.isFiltered = !state.isFiltered;
     },
     setEvents(state, action) {
       state.events = action.payload;
@@ -227,14 +265,26 @@ const globalSlice = createSlice({
       state.selectedEvent = action.payload;
     },
     setSelectedUserOption(state, action) {
-      state.selectedUserOption = action.payload
+      state.selectedUserOption = action.payload;
     },
     setSelectedTeacherOption(state, action) {
-      state.selectedTeacherOption = action.payload
+      state.selectedTeacherOption = action.payload;
+    },
+    toggleRemoveAllFilters(state) {
+      state.removeAllFilters = !state.removeAllFilters;
     },
   },
 });
 
-export const { setSelectedLink, toggleSidebar, setEvents, setSelectedEvent, setSelectedUserOption, setSelectedTeacherOption } = globalSlice.actions;
+export const {
+  setPageTitle,
+  toggleSidebar,
+  toggleIsFiltered,
+  setEvents,
+  setSelectedEvent,
+  setSelectedUserOption,
+  setSelectedTeacherOption,
+  toggleRemoveAllFilters,
+} = globalSlice.actions;
 
 export default globalSlice.reducer;

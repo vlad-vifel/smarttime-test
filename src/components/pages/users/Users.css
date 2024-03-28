@@ -1,0 +1,11 @@
+.user_table th,
+.user_table td {
+  height: 100%;
+  max-height: none;
+}
+
+.user_table td > * {
+  white-space: pre-wrap;
+  height: fit-content;
+  padding-top: 4px;
+}

@@ -1,16 +1,20 @@
 import styles from "./ScrollablePage.module.css";
-import Footer from './../../../footer/Footer';
+import Footer from "./../../../footer/Footer";
 import classNames from "classnames";
+import Sidebar from "../../../sidebar/Sidebar";
 
-const ScrollablePage = ({children}) => {
+const ScrollablePage = ({ children }) => {
   return (
-    <div className={classNames(styles.page, "scrollable")}>
-      <div className={styles.wrapper}>
-        {children}
+    <div className={styles.mid}>
+      <Sidebar />
+      <div className={styles.right}>
+        <div className={classNames(styles.page, "scrollable")}>
+          <div className={styles.wrapper}>{children}</div>
+          <Footer />
+        </div>
       </div>
-      <Footer />
     </div>
-  )
-}
+  );
+};
 
 export default ScrollablePage;

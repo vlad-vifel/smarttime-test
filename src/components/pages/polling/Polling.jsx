@@ -8,10 +8,8 @@ import { useSelector } from "react-redux";
 import Collapsible from "./collapsible/Collapsible";
 import Checkbox from "../../common/checkbox/Checkbox";
 import Restrictions from "./restrictions/Resctrictions";
-import RadioButtons from "../../common/radiobuttons/RadioButtons";
 import Parametres from "./parametres/Parametres";
-// import Table from "../../common/table/Table";
-// import fakeData from './MOCK_DATA.json'
+
 
 const Polling = () => {
   return (
@@ -139,10 +137,10 @@ const Polling = () => {
             </p>
             <div className={styles.checkboxes}>
               <div>
-                <Checkbox checked={false} disabled={true} /> - могу
+                <Checkbox checked={false} disabled={true} isClose={true}/> - могу
               </div>
               <div>
-                <Checkbox checked={true} disabled={true} /> - не могу
+                <Checkbox checked={true} disabled={true} isClose={true}/> - не могу
               </div>
             </div>
             <Restrictions start={new Date(2024, 0, 21)} duration={14} />
@@ -166,7 +164,7 @@ const Polling = () => {
             global_styles.white_rounded_box
           )}
         >
-          <button className={global_styles.btn_orange}>Сохранить</button>
+          <button disabled className={global_styles.btn_orange}>Сохранить</button>
         </div>
       </div>
     </ScrollablePage>

@@ -5,9 +5,9 @@
 .checkbox_container .checkbox .state label:before,
 .checkbox_container .checkbox .state label:after,
 .checkbox_container .checkbox.p-icon input:checked ~ .state label:before {
-  border-color: #ff8000;
+  border-color: #FF8000;
 }
 
 .checkbox .state svg {
-  color: #ff8000;
+  color: #FF8000;
 }

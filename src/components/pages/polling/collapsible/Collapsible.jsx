@@ -15,9 +15,9 @@ const Collapsible = (props) => {
   return (
     <div className={classNames(global_styles.white_rounded_box, styles.main)}>
       <button className={styles.btn} onClick={toggle}>
+        {props.label}
         {open && <UpArrowSmall />}
         {!open && <DownArrowSmall />}
-        {props.label}
       </button>
       {open && <div className={classNames(styles.content)}> {props.children} </div>}
     </div>

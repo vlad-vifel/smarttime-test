@@ -183,8 +183,6 @@ const Planner = () => {
     dispatch(setSelectedEvent(calEvent));
   }, []);
 
-  console.log(useSelector((state) => state.global.selectedEvent));
-
   return (
     <div
       className={classNames(
